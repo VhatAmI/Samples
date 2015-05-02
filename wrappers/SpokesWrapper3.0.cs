@@ -2256,7 +2256,7 @@ namespace Plantronics.UC.SpokesWrapper
                 // We should be able to extract serial number at this point
                 case BaseEventTypeExt.BaseEventTypeExt_SerialNumber:
                     DebugPrint(MethodInfo.GetCurrentMethod().Name, String.Format("be_BaseEventReceived: SerialNumber"));
-                    string serialStr = byteArrayToString(e.SerialNumber);
+                    string serialStr = byteArrayToString((byte[])e.SerialNumber);
                     OnSerialNumber(new SerialNumberArgs(serialStr, SerialNumberTypes.Base));
                     break;
             }
@@ -2271,7 +2271,7 @@ namespace Plantronics.UC.SpokesWrapper
                 // We should be able to extract serial number at this point
                 case DeviceHeadsetState.HeadsetState_SerialNumber:
                     DebugPrint(MethodInfo.GetCurrentMethod().Name, String.Format("eex_HeadsetStateChanged: SerialNumber"));
-                    string serialStr = byteArrayToString(e.SerialNumber);
+                    string serialStr = byteArrayToString((byte[])e.SerialNumber);
                     OnSerialNumber(new SerialNumberArgs(serialStr, SerialNumberTypes.Headset));
                     break;
                 default:
